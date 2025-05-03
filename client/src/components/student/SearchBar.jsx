@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { assets } from '../../assets/assets'
 import { useNavigate } from 'react-router-dom'
 
 const SearchBar = ({data}) => {
   const navigate = useNavigate();
   const [input, setInput] = useState(data ? data : '');
+
+  useEffect(() => {
+    setInput(data || '');
+  }, [data]);
 
   const onSearchHandler = (e)=>{
     e.preventDefault();
